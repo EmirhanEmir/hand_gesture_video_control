@@ -3,13 +3,25 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import time
+import sys
+import os 
+
+def resource_path(relative_path):
+    """PyInstaller ile paketlendiğinde dosya yolu düzeltme."""
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 # Modelleri yükle
-with open("logistic_model.pkl", "rb") as f:
+with open(resource_path("logistic_model.pkl"), "rb") as f:
     model = pickle.load(f)
 
-with open("scaler_model.pkl", "rb") as f:
+with open(resource_path("scaler_model.pkl"), "rb") as f:
     scaler = pickle.load(f)
+
+mp_hands_module_path = resource_path("mediapipe/modules")
 
 # mediapipe tespit ayarları
 mp_hands = mp.solutions.hands
@@ -24,7 +36,7 @@ hands = mp_hands.Hands(
 hareketler = {"başla":0, "dur":1, "ileri":2, "geri":3}
 
 # Video ve kamera
-video_path = "ornek_video/ornek_video.mp4"
+video_path = resource_path("ornek_video/ornek_video.mp4") 
 cam_cap = cv2.VideoCapture(0)
 video_cap = cv2.VideoCapture(video_path)
 
@@ -37,10 +49,10 @@ son_tetikleme = time.time()
 
 if not video_cap.isOpened():
     print("Video açılamadı!")
-    exit()
+    sys.exit()  
 if not cam_cap.isOpened():
     print("Kamera açılamadı!")
-    exit()
+    sys.exit()
 
 while True:
 
