@@ -5,7 +5,7 @@ a = Analysis(
     ['proje_run.py'],
     pathex=[],
     binaries=[],
-    datas=[('logistic_model.pkl', '.'), ('scaler_model.pkl', '.'), ('ornek_video', 'ornek_video'), ('C:\\Users\\HP\\Desktop\\Projeler\\El_Hareketleri\\el_tanima\\Lib\\site-packages\\mediapipe\\modules', 'mediapipe\\modules')],
+    datas=[('logistic_model.pkl', '.'), ('scaler_model.pkl', '.'), ('ornek_video', 'ornek_video'), ('el_tanima/Lib/site-packages/mediapipe/modules', 'mediapipe/modules')],
     hiddenimports=['sklearn', 'sklearn.preprocessing', 'sklearn.linear_model', 'cv2', 'numpy', 'mediapipe'],
     hookspath=[],
     hooksconfig={},
