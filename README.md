@@ -32,9 +32,39 @@ Bu projeyi çalıştırmanın iki yolu vardır:
 3. Dosya yapısını bozmadan çalıştırabilirsiniz; proje Python veya bağımlılıkları yüklemeden hazır şekilde çalışacaktır.
 
 ## Kullanım ve İşleyiş
-- Sistem, webcam veya video dosyasından kareleri alır ve gerçek zamanlı olarak işler.  
-- Model ile tanımlanan el hareketleri, videoyu durdurma, başlatma veya ileri/geri sarma gibi işlemleri tetikler.  
-- Hızlı test için `ornek_video/` içindeki videolar kullanılabilir.
+
+Bu projede **4 farklı el hareketi** tanımlıdır ve her hareket belirli bir video kontrol komutunu tetikler.  
+Sistem yalnızca **sağ el** ile yapılan jestleri algılar ve gerçek zamanlı kamera görüntüsü üzerinden işleme alır.
+
+### Tanımlı El Hareketleri
+
+#### **1️⃣ Okey İşareti – (Play)**
+Videoyu **başlatmak** için sağ elinizle **okey işareti** yapıp kameraya gösterin.  
+<img src="images/baslat.png" width="400">
+
+---
+
+#### **2️⃣ Avuç Kameraya Dönük Dik – (Pause)**
+Videoyu **duraklatmak** için sağ elinizi **avuç içi kameraya bakacak ve dik** şekilde gösterin.  
+<img src="images/durdur.png" width="400">
+
+---
+
+#### **3️⃣ Avuç Kameraya Dönük, El Yatay – (Forward)**
+Videoyu **ileri sarmak** için sağ elinizi **avuç içi kameraya dönük ve yatay** biçimde tutun.  
+<img src="images/ileriSar.png" width="400">
+
+---
+
+#### **4️⃣ Avuç Size Dönük, El Yatay – (Backward)**
+Videoyu **geri sarmak** için sağ elinizi **avuç içi size dönük ve yatay** şekilde konumlandırın.  
+<img src="images/geriSar.png" width="400">
+
+---
+
+### Önemli Not  
+Bu proje **yalnızca sağ el hareketlerini** algılar. Sol el ile yapılan hareketler sistem tarafından yanlış değerlendirilebilir.
+
 
 ## Gereksinimler
 - Python 3.8-3.10 (sadece projeyi klonlayıp çalıştırmak isteyenler için gereklidir)  
